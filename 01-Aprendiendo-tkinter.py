@@ -5,6 +5,8 @@ interfaces graficas.
 
 from tkinter import *
 
+import os
+
 
 # Crear ventana raíz
 
@@ -27,7 +29,14 @@ ventana.resizable(False, False)
 
 # como ponerle un logotico a nuestra aplicacion esta imagen debe ser .ico
 
-ventana.iconbitmap('./imagenes/camara.ico')
+# comprobar que la imagen existe 
+
+rutaImagen = os.path.abspath('./imagenes/camara.ico')
+
+if os.path.isfile(rutaImagen):
+ ventana.iconbitmap(rutaImagen)
+else:
+ print("No existe la imagen en la ruta especificada...")
 
 
 
